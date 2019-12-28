@@ -1,0 +1,52 @@
+#include<bits/stdc++.h>
+#define ll          long long
+#define pb          push_back
+#define ppb         pop_back
+#define endl        '\n'
+#define mii         map<ll int,ll int>
+#define msi         map<string,ll int>
+#define mis         map<ll int, string>
+#define mpi         map<pair<ll int,ll int>,ll int>
+#define pii         pair<ll int,ll int>
+#define vi          vector<ll int>
+#define vs          vector<string>
+#define all(a)      (a).begin(),(a).end()
+#define F           first
+#define S           second
+#define sz(x)       (ll int)x.size()
+#define hell        1000000007
+#define lbnd        lower_bound
+#define ubnd        upper_bound
+#define bs          binary_search
+#define mp          make_pair
+#define what_is(x)  cerr << #x << " is " << x << endl;
+using namespace std;
+
+#define N  100005
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    int TESTS=1;
+//  cin>>TESTS;
+    while(TESTS--)
+    {
+    	int n,m;
+    	cin>>n>>m;
+    	int s[m];
+    	for(int i=0;i<m;i++)
+    	cin>>s[i];
+    	int table[n+1];
+    	memset(table,0,sizeof(table));
+    	table[0]=1;
+    	for(int i=0;i<m;i++)
+    	{
+    		for(int j=s[i];j<=n;j++)
+    		table[j]+=table[j-s[i]];
+		}
+		cout<<table[n]<<endl;
+	}
+	
+}
